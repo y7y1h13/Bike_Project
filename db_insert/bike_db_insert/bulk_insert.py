@@ -3,7 +3,7 @@ import json
 import requests
 import pandas as pd
 import pymysql
-from sqlalchemy import text, create_engine
+from sqlalchemy import create_engine
 from datetime import date, timedelta
 from collections import defaultdict
 
