@@ -3,7 +3,6 @@ import requests
 import pymysql
 from sqlalchemy import text, create_engine
 
-
 engine = create_engine('mysql+pymysql://bike:dbgusals1@localhost:3306/use_bike')
 
 for i in range(1, 2002, 1000):
@@ -35,4 +34,3 @@ for i in range(1, 2002, 1000):
         dt = {"stationId": id,
               "stationName": name}
         engine.execute(text(sql), **dt)
-
