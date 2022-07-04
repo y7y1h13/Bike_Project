@@ -7,3 +7,5 @@
 *.xml
 .idea/misc.xml
 .idea/JobProject.iml
+*.xml
+*.iml
