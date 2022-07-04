@@ -45,4 +45,3 @@ for h in range(24):
         df.to_sql(name='bike', con=engine, if_exists='append', index=False)
 end = time.time()
 print(f"{end - start:.5f} sec")
-
