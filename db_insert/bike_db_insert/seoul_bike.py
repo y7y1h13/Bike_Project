@@ -4,7 +4,7 @@ import pymysql
 from sqlalchemy import text, create_engine
 from datetime import date, timedelta
 
-engine = create_engine('mysql+pymysql://bike:dbgusals1@localhost:3306/use_bike')
+engine = create_engine('mysql+pymysql://bike:dbgusals1@etl.cgskizjipfsf.ap-northeast-2.rds.amazonaws.com:3306/use_bike')
 
 for h in range(24):
     for i in range(1, 2002, 1000):
