@@ -1,1 +1,6 @@
-.idea/
+.idea/aws.xml
+.idea/deployment.xml
+.idea/JobProject.iml
+.idea/misc.xml
+.idea/sshConfigs.xml
+.idea/webServers.xml
