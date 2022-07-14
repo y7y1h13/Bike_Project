@@ -34,16 +34,15 @@ try:
                 stationName = j.get('stationName')
                 if stationName[0].isdigit():
                     stationName = stationName[5:].lstrip().rstrip()
+
                 dic['Date'].append(f'{yesterday.strftime("%Y-%m-%d")}" "{h}')
-                # dic['Date'].append(j.get('stationDt'))
                 dic['stationId'].append((j.get('stationId'))[3:])
                 dic['stationName'].append(stationName)
                 dic['parkingBike'].append(j.get('parkingBikeTotCnt'))
-                dic['shared'].append(j.get('shared'))
+                dic['shared'].append(float(j.get('shared')) * 0.01)
                 dic['rackTotCnt'].append(j.get('rackTotCnt'))
                 dic['location'].append(f"{j.get('stationLatitude')},{j.get('stationLongitude')}")
-                # dic['stationLatitude'].append(j.get('stationLatitude'))
-                # dic['stationLongitude'].append(j.get('stationLongitude'))
+
             df = pd.DataFrame(dic)
             df.to_sql(name='bike', con=engine, if_exists='append', index=False)
     end = time.time()
