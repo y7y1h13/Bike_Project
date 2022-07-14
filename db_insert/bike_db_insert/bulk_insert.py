@@ -25,6 +25,9 @@ try:
             else:
                 url = f'http://openapi.seoul.go.kr:8088/707950714679377934386e64746352/json/bikeListHist/{i}/{i + 999}/{yesterday.strftime("%Y%m%d")}{h}'
 
+
+
+
             response = requests.get(url)
             json_ob = json.loads(response.content)
             json_ar = json_ob.get('getStationListHist')
@@ -34,8 +37,10 @@ try:
                 stationName = j.get('stationName')
                 if stationName[0].isdigit():
                     stationName = stationName[5:].lstrip().rstrip()
-
-                dic['Date'].append(f'{yesterday.strftime("%Y-%m-%d")}" "{h}')
+                if h < 10:
+                    dic['Date'].append(f'{yesterday.strftime("%Y-%m-%d")} 0{h}')
+                else:
+                    dic['Date'].append(f'{yesterday.strftime("%Y-%m-%d")} {h}')
                 dic['stationId'].append((j.get('stationId'))[3:])
                 dic['stationName'].append(stationName)
                 dic['parkingBike'].append(j.get('parkingBikeTotCnt'))
