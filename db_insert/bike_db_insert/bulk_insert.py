@@ -4,16 +4,16 @@ import requests
 import pandas as pd
 import pymysql
 from sqlalchemy import create_engine
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from collections import defaultdict
 
 start = time.time()
-
+now = datetime.now()
 engine = create_engine('mysql+pymysql://bike:dbgusals1@etl.cgskizjipfsf.ap-northeast-2.rds.amazonaws.com:3306/use_bike')
 
 
 try:
-    for h in range(24):
+    for h in range(now.hour + 1, 24):
         for i in range(1, 2002, 1000):
             dic = defaultdict(list)
             today = date.today()

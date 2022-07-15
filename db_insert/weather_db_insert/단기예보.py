@@ -12,7 +12,6 @@ url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'
 now = datetime.now()
 try:
     for h in range(now.hour + 1, 24):
-        print(h)
         dic = defaultdict(list)
         today = date.today()
         yesterday = date.today() - timedelta(1)
@@ -29,7 +28,7 @@ try:
         response = requests.get(url, params=params)
         json_ob = json.loads(response.content)
         json_ar = json_ob.get('response').get('body').get('items').get('item')
-        dic['DATE'].append(f'{yesterday.strftime("%Y-%m-%d")}" "{h}')
+        dic['DATE'].append(f'{yesterday.strftime("%Y-%m-%d")} {h}')
         for i in json_ar:
             dic[i['category']].append(i['obsrValue'])
         df = pd.DataFrame(dic)
