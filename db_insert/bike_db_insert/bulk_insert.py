@@ -49,7 +49,7 @@ try:
             dic['location'].append(f"{j.get('stationLatitude')},{j.get('stationLongitude')}")
 
         df = pd.DataFrame(dic)
-        df.to_sql(name='bike', con=engine, if_exists='append', index=False)
+        # df.to_sql(name='bike', con=engine, if_exists='append', index=False)
     end = time.time()
     print(f"{end - start:.5f} sec")
 except:
